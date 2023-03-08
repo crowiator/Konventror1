@@ -9,14 +9,31 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        
+        NavigationView{
+            
+            ScrollView{
+                NavigationLink{
+                ConvertVzdialenostView()
+                } label: {
+                    LinkView(topColor: .blue, bottomColor: .brown, headerTitle: "Vzdialenost", titleImage: "imageKM")
+                }
+                
+                NavigationLink{
+                ConvertObjemView()
+                } label: {
+                    LinkView(topColor: .red, bottomColor: .green, headerTitle: "Objem", titleImage: "imageML")
+                }
+                
+            }
+            
+            .navigationTitle("Konventor")
+            
         }
-        .padding()
+        .navigationViewStyle(.stack)
     }
+      
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
